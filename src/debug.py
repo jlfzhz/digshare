@@ -18,4 +18,12 @@ print(pandas_df)
 df01=pd.DataFrame(columns=['age','score'])
 df01['score']=np.random.randint(50,100,size=(10))
 df01['age']=np.random.randint(20,35,size=(10))
+df01.plot(x='age',y='score',kind='scatter')
 print(df01)
+print(df01.sort_values(by=['age']))
+sorted_df02 = df01.sort_values(by=['age'])
+sorted_df02.plot(x='age',y='score')
+
+data_url = "https://github.com/turingplanet/pandas-intro/blob/main/public-datasets/iris.csv"
+iris_data_df = pd.read_csv(data_url)
+print(iris_data_df)
