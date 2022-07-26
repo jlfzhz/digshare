@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import os
+import pathlib
 
 random_int = np.random.randint(50,100,size=(10))
 
@@ -19,7 +21,14 @@ print(data_series)
 data_series=data_series.rename('new list')
 print(data_series)
 
-
-country_data = pd.read_csv(".//data//country.csv")
-print(data_series)
-print(country_data)
+# print(os.path.dirname(os.getcwd()))
+# print(os.getcwd())
+# print(os.path.curdir)
+# print(os.path.split(os.path.abspath(__file__)))
+# print(os.path.pardir(os.path.abspath(__file__)))
+# print(type(os.path.abspath(__file__)))
+print(pathlib.Path(__file__).parents[1])
+data_url = os.path.join(pathlib.Path(__file__).parents[1],'data','country.csv')
+country_table=pd.read_csv(data_url,delimiter=',')
+# print(country_table)
+print(country_table.iloc[100])
