@@ -1,3 +1,4 @@
+from tkinter import W
 import numpy as np
 import pandas as pd
 import os
@@ -31,9 +32,12 @@ print(pathlib.Path(__file__).parents[1])
 data_url = os.path.join(pathlib.Path(__file__).parents[1],'data','country.csv')
 country_table=pd.read_csv(data_url,delimiter=',')
 # print(country_table)
-print(country_table.iloc[100])
+# print(country_table.iloc[100])
 # country_table.set_index('Country')
 # country_table.sort_index('Country')
-zero_migration_filter = (country_table['Net migration'] == '0')
-print(country_table[zero_migration_filter])
+# zero_migration_filter = (country_table['Net migration'] == '0')
+# print(country_table[zero_migration_filter])
 # print(country_table)
+
+df_country = country_table.set_index('Country', inplace=True)
+print(df_country[['Country','Region','Population','Climate']])
